@@ -1,0 +1,13 @@
+<form action="/mhs/update/<%= mhs.id %>" method="POST" class="form-signin">
+	<h2 class="form-signin-heading">Edit Data Mahasiswa</h2>
+
+	<div class="control-group">
+	<input type="text" class="form-control" value="<%= mhs.nrp %>" name="nrp" maxlength=10 readonly=''>
+	</div>
+
+	<div class="control-group">
+	<input type="text" class="form-control" value="<%= mhs.nama %>" name="nama" maxlength=30>
+	</div>
+	
+	<input type="submit" class="btn btn-lg btn-primary btn-block" value="Perbarui"/>
+</form>

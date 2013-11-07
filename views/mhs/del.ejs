@@ -1,0 +1,17 @@
+<form action="/mhs/destroy/<%= mhs.id %>" method="POST" class="form-signin">
+	<h2 class="form-signin-heading">Hapus Data Mahasiswa</h2>
+
+	<div class="control-group">
+	<input type="text" class="form-control" value="<%= mhs.nrp %>" name="nrp" maxlength=10 readonly=''>
+	</div>
+
+	<div class="control-group">
+	<input type="text" class="form-control" value="<%= mhs.nama %>" name="nama" maxlength=30 readonly=''>
+	</div>
+
+	<div class="control-group">
+	<input type="password" class="form-control" placeholder="Masukkan Password" name="password">
+	</div>
+	
+	<input type="submit" class="btn btn-lg btn-primary btn-block" value="Hapus"/>
+</form>

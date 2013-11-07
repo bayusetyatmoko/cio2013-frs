@@ -1,0 +1,39 @@
+<div class="container">
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3 class="panel-title"><strong>Data Master - Mahasiswa</strong></h3>
+		</div>
+		<div class="panel-body">
+			
+			<table class='table'>
+				<tr>
+					<th>ID</th>
+					<th>NRP</th>
+					<th>Nama</th>
+					<th></th>
+					<th></th>
+				</tr>
+				
+				<% _.each(mhs, function(mhs) { %>
+				<tr data-id="<%= mhs.id %>" data-model="mhs">								
+					<td><%= mhs.id %></td>
+					<td><%= mhs.nrp %></td>
+					<td><%= mhs.nama %></td>
+					
+					<td><a href="/mhs/edit/<%= mhs.id %>" class="btn btn-sm btn-warning">Ubah</a></td>
+		
+					<td><form action="/mhs/del/<%= mhs.id %>" method="POST">
+						<input type="hidden" name="_method" value="delete"/>
+						<input type="submit" class="btn btn-sm btn-danger" value="Hapus"/>
+					</form></td>
+					
+				</tr> 
+				<% }) %>
+			</table>
+
+			<a class="btn btn-medium btn-primary" href="/mhs/new/">Tambah</a>
+			
+		</div>
+	</div>
+</div><!--/container-->
+
