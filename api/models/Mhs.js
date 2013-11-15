@@ -14,7 +14,8 @@ module.exports = {
 
   	nrp: {
   		type: 'string',
-  		required: true
+  		required: true,
+  		unique: true
   	},
 
   	nama: {

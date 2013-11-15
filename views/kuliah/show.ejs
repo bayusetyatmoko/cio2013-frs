@@ -2,10 +2,82 @@
 	<div class="panel panel-primary">
 		<div class="panel-heading">
 			<h3 class="panel-title"><strong>Data Master - Mata Kuliah</strong></h3>
-		</div>
+		</div><!--/panel-heading-->
+		
 		<div class="panel-body">
 
-		</div>
-	</div>
+			<table border=0 class='table'>
+				<tr>
+					<td>  
+						<form class="form-inline" role="form">
+							<div class="form-group">
+								<label for="txtkode">Kode MataKuliah</label>
+							
+								<% if (KodeSearch === '') { %>
+								<input type="text" class"form-control" placeholder="Search" name="kode" id="txtkode" maxlength=8 ></input>
+								<% } else { %>
+								<input type="text" class"form-control" placeholder="Search" name="kode" id="txtkode" maxlength=8 value=<%= KodeSearch %> ></input>
+								<% } %>
+								
+							</div>
+							<button type="submit" class="btn btn-default">Cari</button>
+						</form>
+					</td>
+					<td width=5%>  
+						<a class="btn btn-medium btn-primary" href="/kuliah/new/">Tambah</a>
+					</td>
+				</tr>
+			</table><!--/table-->
+
+			
+			<% var counter = 1; %>
+			<table class='table'>
+				<tr class="success">
+					<th>No</th>
+					<th>Kode</th>
+					<th>Nama</th>
+					<th>SKS</th>
+					<th>Dosen</th>
+					<th></th>
+					<th></th>
+				</tr>
+				
+				<% _.each(kuliah, function(kuliah) { %>
+				
+				<% if (KodeSelect === kuliah.kode) { %>
+				<tr class="danger" data-id="<%= kuliah.id %>" data-model="kuliah">
+				<% } else { %>
+				<tr data-id="<%= kuliah.id %>" data-model="kuliah">
+				<% } %>
+				
+					<td><%= counter++ %></td>
+					<td><%= kuliah.kode %></td>
+					<td><%= kuliah.nama %></td>
+					<td><%= kuliah.sks %></td>
+					<td><%= kuliah.namadosen %></td>
+					<!--
+					<td></td>
+					<td></td>
+					-->
+					
+					
+					
+					<td><a href="/kuliah/edit/<%= kuliah.id %>" class="btn btn-sm btn-warning">Ubah</a></td>
+		
+					<td><form action="/kuliah/del/<%= kuliah.id %>" method="POST">
+						<input type="hidden" name="_method" value="delete"/>
+						<input type="submit" class="btn btn-sm btn-danger" value="Hapus"/>
+					</form></td>
+					
+					
+					
+				</tr> 
+				<% }) %>
+			</table><!--/table-->
+		
+		
+		</div><!--/panel-body-->
+	</div><!--/panel-primary-->
 </div><!--/container-->
+
 

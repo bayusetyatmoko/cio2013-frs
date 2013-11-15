@@ -1,0 +1,15 @@
+<form action="/dosen/update/<%= dosen.id %>" method="POST" id="form-edit" class="form-bayuz">
+	<h2 class="form-signin-heading">Edit Data Dosen</h2>
+
+	<div class="form-group">
+	<label for="txtnip">NIP</label>
+	<input type="text" class="form-control" value="<%= dosen.nip %>" name="nip" id="txtnip" maxlength=18 readonly=''>
+	</div>
+
+	<div class="form-group">
+	<label for="txtnama">Nama</label>
+	<input type="text" class="form-control" value="<%= dosen.nama %>" name="nama" id="txtnama" maxlength=45>
+	</div>
+	
+	<input type="submit" class="btn btn-lg btn-primary btn-block" value="Perbarui"/>
+</form>

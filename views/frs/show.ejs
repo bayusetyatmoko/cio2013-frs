@@ -1,11 +1,98 @@
 <div class="container">
 	<div class="panel panel-primary">
 		<div class="panel-heading">
-			<h3 class="panel-title"><strong>Data Transaksi - FRS</strong></h3>
-		</div>
+			<h3 class="panel-title"><strong>Data Form Rencana Studi (FRS)</strong></h3>
+		</div><!--/panel-heading-->
+		
 		<div class="panel-body">
+				
+			<table border=0 class='table'>
+				<tr>
+					<td>
+					
+						<form action="/frs/show/" class="form-inline" role="form">
+							<div class="form-group">
+								<select class="form-control" name="nrp" id="selmhs">
+									<option value=""> --- PILIH MAHASISWA --- </option>
+									
+									<% _.each(mhs, function(mhs) { %>
+										<% if (NRPSelect == mhs.nrp) { %> 
+										<option value="<%= mhs.nrp %>" selected> <%= mhs.nama %> </option>
+										<% } else { %>
+										<option value="<%= mhs.nrp %>"> <%= mhs.nama %> </option>
+										<% } %>
+									<% }) %>
+									
+								</select>
+							</div>
+							<button type="submit" class="btn btn-default">Tampilkan</button>
+						</form>
+						
+					</td>
+					<td width=5%>
+						<form action="/frs/new/" class="form-inline" role="form">
+							<div class="form-group">
+								<input type="submit" class="btn btn-medium btn-primary" value="Tambah"/>
+								<input type="hidden" name="nrp" value="<%= NRPSelect %>" />
+							</div>
+						</form>
+					</td>
+				</tr>
+			</table><!--/table-->
+				
+			<table border=0 class='table'>
+				<tr font-><strong><center><h4>NRP Mahasiswa :	<%= NRPSelect %></h4></center></strong></tr>
+				<tr font-><strong><center><h4>Nama Mahasiswa :	<%= NamaSelect %></h4></center></strong></tr>
+			</table><!--/table-->
+			
+			<% var counter = 1; %>
+			<% var total_sks = 0; %> 
+			<table class='table'>
+				<tr class="success">
+					<th>No</th>
+					<th>Kode</th>
+					<th>Nama</th>
+					<th>SKS</th>
+					<th>Dosen</th>
+					<th></th>
+				</tr>
+				
+				<% _.each(frs, function(frs) { %>
+					<% total_sks = total_sks + frs.kuliah_sks; %>
+				
+				<tr data-id="<%= frs.id %>" data-model="frs">
+					<td><%= counter++ %></td>
+					<td><%= frs.kuliah_kode %></td>
+					<td><%= frs.kuliah_nama %></td>
+					<td><%= frs.kuliah_sks %></td>
+					<td><%= frs.dosen_nama %></td>
+					
+					<td><form action="/frs/del/<%= frs.id %>" method="POST">
+						<input type="hidden" name="_method" value="delete"/>
+						<input type="submit" class="btn btn-sm btn-danger" value="Hapus"/>
+					</form></td>
+					
+				</tr>
+				<% }) %>
+				
+				<% if (NRPSelect != '') { %>
+				<tr>
+					<td></td>
+					<td></td>
+					<td><strong>[TOTAL SKS MK YG DIAMBIL]</strong></td>
+					<td><strong><%= total_sks %></strong></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<% } %>
+				
+			</table><!--/table-->
 
-		</div>
-	</div>
+
+			
+			
+		</div><!--/panel-body-->
+	</div><!--/panel-primary-->
 </div><!--/container-->
+
 

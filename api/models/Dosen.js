@@ -14,7 +14,8 @@ module.exports = {
   	
   	nip: {
   		type: 'string',
-  		required: true
+  		required: true,
+  		unique: true
   	},
 
   	nama: {

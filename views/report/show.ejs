@@ -1,11 +1,51 @@
 <div class="container">
 	<div class="panel panel-primary">
 		<div class="panel-heading">
-			<h3 class="panel-title"><strong>Laporan - Mahasiswa</strong></h3>
-		</div>
+			<h3 class="panel-title"><strong>Laporan FRS Mahasiswa</strong></h3>
+		</div><!--/panel-heading-->
 		<div class="panel-body">
+			
+			<% var counter = 1; %>
+			<% var tempmhs_nrp = ''; %>
+			<% var temptotal_mk = 0; %>
+			<% var temptotal_sks = 0; %>
+			
+			<table class='table'>
+				<tr class="success">
+					<th>No</th>
+					<th>Kode</th>
+					<th>Nama</th>
+					<th>Total MK</th>
+					<th>Total SKS</th>
+				</tr>
+				
+				<% _.each(mhs, function(mhs) { %>
+				
+					<% tempmhs_nrp = mhs.nrp; %>
+					<% temptotal_mk = 0; %>
+					<% temptotal_sks = 0; %>
+					<% _.each(frs, function(frs) { %>
+						<% if (tempmhs_nrp == frs.mhs_nrp) { %>
+							<% temptotal_mk = frs.total_mk; %>
+							<% temptotal_sks = frs.total_sks; %> 
+						<% } %>
+					<% }) %>
+				
+				<tr data-id="<%= mhs.id %>" data-model="mhs">
+					<td><%= counter++ %></td>
+					<td><%= mhs.nrp %></td>
+					<td><%= mhs.nama %></td>
+					<td><%= temptotal_mk %></td>
+					<td><%= temptotal_sks %></td>
+				</tr>
+				
+				<% }) %>
+				
+			</table><!--/table-->
+			
 
-		</div>
-	</div>
+			
+		</div><!--/panel-body-->
+	</div><!--/panel-primary-->
 </div><!--/container-->
 

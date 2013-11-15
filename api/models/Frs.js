@@ -12,12 +12,12 @@ module.exports = {
 
   attributes: {
 
-  	nrp_mhs: {
+  	id_mhs: {
   		type: 'string',
   		required: true
   	},
   	
-  	kode_akademik: {
+  	id_kuliah: {
   		type: 'string',
   		required: true
   	}

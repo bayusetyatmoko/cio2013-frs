@@ -1,0 +1,102 @@
+<form action="/frs/create" method="POST" name="listForm" id="form-new" class="form-bayuz-02">
+	<h2 class="form-signin-heading">Tambah Data MataKuliah (FRS)</h2>
+	
+			<table border=0 class='table'>
+				<tr><strong><center><h4>NRP Mahasiswa :	<%= NRPSelect %></h4></center></strong></tr>
+				<tr><strong><center><h4>Nama Mahasiswa :	<%= NamaSelect %></h4></center></strong></tr>
+			</table><!--/table-->
+			
+			<% var counter = 1; %>
+			<% var countcheckbox = 0; %>
+			<% var skschecked = [] %>
+			<% var total_sks = 0; %>
+			<% var statkuliah = 0; %>
+			<% var tempidkuliah =''; %>
+			<% var strcheckid =''; %>
+			
+			<table class='table'>
+				<tr class="success">
+					<th>No</th>
+					<th>Kode</th>
+					<th>Nama</th>
+					<th>SKS</th>
+					<th>Dosen</th>
+					<th>Pilihan</th>
+				</tr>
+							
+				<% _.each(kuliah, function(kuliah) { %>
+				
+					<% tempidkuliah = kuliah.id; %>
+					<% statkuliah = 0; %>
+					<% _.each(frs, function(frs) { %>
+						<% if (tempidkuliah == frs.id_kuliah) { %>
+							<% statkuliah = 1; %>
+							<% total_sks = total_sks + kuliah.sks %>
+						<% }; %>  
+					<% }) %>
+				
+				<% if (statkuliah == '1') { %> 
+				<tr class="danger" data-id="<%= kuliah.id %>" data-model="kuliah">
+				<% } else { %>
+				<tr data-id="<%= kuliah.id %>" data-model="kuliah">
+				<% } %>
+				
+					<td><%= counter++ %></td>
+					<td><%= kuliah.kode %></td>
+					<td><%= kuliah.nama %></td>
+					<td><%= kuliah.sks %></td>
+					<td><%= kuliah.dosen_nama %></td>
+					<td>
+						<% if (statkuliah == '0') { %>
+						<div class="checkbox">
+							<% strcheckid = "check" + countcheckbox; %>
+							<input type="checkbox" name="id_kuliah[]" id="<%= strcheckid %>" value="<%= kuliah.id %>" onchange="checkTotal()" >
+							<% countcheckbox = countcheckbox + 1; %>
+							<% skschecked.push(kuliah.sks); %>
+						</div>
+						<% } %>
+					</td>
+				</tr> 
+				<% }) %>
+				
+				<% if (NRPSelect != '') { %>
+				<tr>
+					<td></td>
+					<td></td>
+					<td><strong>[TOTAL SKS MK YG DIAMBIL]</strong></td>
+					<td><strong><input type="text" class="form-control" size="2" name="total" id="totalcost" value="<%= total_sks %>" readonly=''></strong></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<% } %>
+				
+			</table><!--/table-->
+
+
+			
+	<center>
+	<input type="submit" class="btn btn-primary btn-lg active" value="Tambah"/>
+	<input type="hidden" name="id_mhs" value="<%= IDSelect %>" />
+	<input type="hidden" name="nrp" value="<%= NRPSelect %>" />
+	</center>
+</form>
+
+<script type="text/javascript">
+	function checkTotal() {
+		var sum = <%- total_sks %>;
+		var sksku = [];
+		var sks = <%- JSON.stringify(skschecked) %>;
+		sks.forEach(function(getsks){
+			sksku.push(getsks);
+		});
+		for (i=0; i < <%- countcheckbox%>; i++) {
+			var ck = 'check'+i;
+			var elem = document.getElementById(ck);
+			if (elem.checked == true) {
+				sum = sum + sksku[i];
+			}
+		}
+		document.listForm.total.value = sum;
+	}
+</script>
+

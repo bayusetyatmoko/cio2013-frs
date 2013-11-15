@@ -1,0 +1,30 @@
+<form action="/frs/destroy/<%= FrsID %>" method="POST" id="form-del" class="form-bayuz">
+	<h2 class="form-signin-heading">Hapus MataKuliah (FRS)</h2>
+
+	<div class="form-group">
+	<label for="txtkode">Kode</label>
+	<input type="text" class="form-control" value="<%= KuliahKode %>" name="kode" id="txtkode" maxlength=8 readonly=''>
+	</div>
+
+	<div class="form-group">
+	<label for="txtnama">Nama</label>
+	<input type="text" class="form-control" value="<%= KuliahNama %>" name="nama" id="txtnama" maxlength=45 readonly=''>
+	</div>
+
+	<div class="form-group">
+	<label for="txtsks">SKS</label>
+	<input type="text" class="form-control" value="<%= KuliahSKS %>" name="sks" id="txtsks" maxlength=1 readonly=''>
+	</div>
+
+	<div class="form-group">
+	<label for="txtdosen">Dosen</label>
+	<input type="text" class="form-control" value="<%= DosenNama %>" name="id_dosen" id="txtdosen" maxlength=45 readonly=''>
+	</div>
+	
+	<div class="form-group">
+	<label for="txtpasswd">Password</label>
+	<input type="password" class="form-control" placeholder="Masukkan Password" name="password" id="txtpasswd" >
+	</div>
+	
+	<input type="submit" class="btn btn-lg btn-primary btn-block" value="Hapus"/>
+</form>

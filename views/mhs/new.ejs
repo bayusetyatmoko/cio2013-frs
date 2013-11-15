@@ -1,13 +1,41 @@
-<form action="/mhs/create" method="POST" id="sign-up-form" class="form-signin">
+<form action="/mhs/create" method="POST" id="form-new" class="form-bayuz">
 	<h2 class="form-signin-heading">Tambah Data Mahasiswa</h2>
-
-	<div class="control-group">
-	<input type="text" class="form-control" placeholder="NRP Mahasiswa" name="nrp" maxlength=10>
+	
+	<div class="form-group">
+	<label for="txtnrp">NRP</label>
+	<input type="text" class="form-control" placeholder="NRP Mahasiswa" name="nrp" id="txtnrp" maxlength=10 onkeypress="return isNumberKey(event)" onchange="cekNRPDouble()">
 	</div>
 
-	<div class="control-group">
-	<input type="text" class="form-control" placeholder="Nama Mahasiswa" name="nama" maxlength=30>
+	<div class="form-group">
+	<label for="txtnama">Nama</label>
+	<input type="text" class="form-control" placeholder="Nama Mahasiswa" name="nama" id="txtnama" maxlength=45>
 	</div>
 	
 	<input type="submit" class="btn btn-lg btn-primary btn-block" value="Tambah"/>
 </form>
+
+<script>
+	function isNumberKey(evt) {
+		var charCode = (evt.which) ? evt.which : event.keyCode
+		if (charCode > 31 && (charCode < 48 || charCode > 57))
+			return false;
+		return true;
+	}
+	
+	function cekNRPDouble() {
+		var txtinput = document.getElementById("txtnrp");
+		var mhsku = [];
+		var mhs = <%- JSON.stringify(mhs) %>;
+		mhs.forEach(function(getmhs){
+			mhsku.push(getmhs.nrp);
+		});
+		if (mhsku.indexOf(txtinput.value) === -1) {
+			txtinput.style.background="white";
+		} else {
+			txtinput.value = '';
+			txtinput.placeholder = 'NRP Mahasiswa Sudah Ada!';
+			txtinput.style.background="pink";
+		}			
+	}
+</script>
+

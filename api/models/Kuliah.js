@@ -14,13 +14,25 @@ module.exports = {
   	
   	kode: {
   		type: 'string',
-  		required: true
+  		required: true,
+  		unique: true
   	},
 
   	nama: {
   		type: 'string',
   		required: true
+  	},
+  	
+  	sks: {
+  		type: 'integer',
+  		required: true
+  	},
+  	
+  	id_dosen: {
+  		type: 'string',
+  		required: true
   	}
+  	
   	
   }
 
