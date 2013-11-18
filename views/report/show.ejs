@@ -9,6 +9,8 @@
 			<% var tempmhs_nrp = ''; %>
 			<% var temptotal_mk = 0; %>
 			<% var temptotal_sks = 0; %>
+
+			<% var statTotalSKS = []; %>
 			
 			<table class='table'>
 				<tr class="success">
@@ -30,7 +32,9 @@
 							<% temptotal_sks = frs.total_sks; %> 
 						<% } %>
 					<% }) %>
-				
+					
+					<% statTotalSKS.push(temptotal_sks); %>
+					
 				<tr data-id="<%= mhs.id %>" data-model="mhs">
 					<td><%= counter++ %></td>
 					<td><%= mhs.nrp %></td>
@@ -38,12 +42,50 @@
 					<td><%= temptotal_mk %></td>
 					<td><%= temptotal_sks %></td>
 				</tr>
-				
 				<% }) %>
 				
 			</table><!--/table-->
 			
-
+			<strong>Data Statistik FRS Mahasiswa : </strong>
+			</br></br>
+			
+			<table class='table'>
+				<tr class="success">
+					<th>No</th>
+					<th>Total SKS</th>
+					<th>Jumlah Mahasiswa</th>
+				</tr>
+				
+				<% counter = 0; %>
+				<% var counterSKS = 1; %>
+				<% var tempTotalSKS = 99; %>
+				<% var statSKSnama = []; %>
+				<% var statSKScount = []; %>
+				<% statTotalSKS.sort(); %>
+				<% statTotalSKS.forEach(function(getstatTotalSKS){ %>
+					<% if (tempTotalSKS != getstatTotalSKS) { %>
+					<%   if (tempTotalSKS != 99) {counter++;} %>
+					<%	 counterSKS = 1; %>
+					<%	 tempTotalSKS = getstatTotalSKS; %>
+					<%	 statSKSnama.push(getstatTotalSKS);	%>
+					<%	 statSKScount.push(counterSKS);	%>
+					<% } else { %>
+					<%   counterSKS++;  %>
+          <%   statSKScount[counter] = counterSKS; %> 
+					<% } %>
+				<% }) %>
+				
+				<% counter = 1; %>
+				<% statSKSnama.forEach(function(getstatSKSnama){ %>
+				<tr>
+					<td><%= counter++ %></td>
+					<td><%= statSKSnama[counter-2] %></td>
+					<td><%= statSKScount[counter-2] %></td>
+				</tr>
+				<% }) %>
+				
+			</table><!--/table-->
+				
 			
 		</div><!--/panel-body-->
 	</div><!--/panel-primary-->
