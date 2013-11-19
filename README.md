@@ -8,20 +8,20 @@ Program SIM Akademik / FRS (Form Rencana Studi)
 
 Kebutuhan Teknologi :
 =====================
-01. Database Server = MySQL 5 (http://www.mysql.com/)
+1. Database Server = MySQL 5 (http://www.mysql.com/)
 
-02. Git Client = Git v1.8.4.3 (http://git-scm.com/)  
+2. Git Client = Git v1.8.4.3 (http://git-scm.com/)  
 
-03. Programming Language = Nodejs v0.10.22 (http://nodejs.org/)
+3. Programming Language = Nodejs v0.10.22 (http://nodejs.org/)
 
-04. Node Packaged Manager = NPM v1.3.14 (https://npmjs.org)
+4. Node Packaged Manager = NPM v1.3.14 (https://npmjs.org)
 
-05. Web MVC Framework = Sails.js v0.9.7 (http://sailsjs.org/)
+5. Web MVC Framework = Sails.js v0.9.7 (http://sailsjs.org/)
 
 
 Langkah-langkah Instalasi Program :
 ===================================
-01. Install MySQL
+1. Install MySQL
 
 http://www.mysql.com/why-mysql/windows/
 
@@ -30,14 +30,14 @@ http://www.apachefriends.org/en/xampp-windows.html
 http://www.howtoforge.com/installing-apache2-with-php5-and-mysql-support-on-debian-wheezy
 
 
-02. Install Git Client
+2. Install Git Client
 
 http://git-scm.com/downloads
 
 http://git-scm.com/book/en/Getting-Started-Installing-Git
 
 
-03. Ambil Source Code di Github
+3. Ambil Source Code di Github
 
 Ada 2 cara yaitu :
 
