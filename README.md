@@ -18,6 +18,7 @@ Kebutuhan Teknologi :
 
 05. Web MVC Framework = Sails.js v0.9.7 (http://sailsjs.org/)
 
+
 Langkah-langkah Instalasi Program :
 ===================================
 01. Install MySQL
@@ -30,21 +31,30 @@ http://www.howtoforge.com/installing-apache2-with-php5-and-mysql-support-on-debi
 
 
 02. Install Git Client
+
 http://git-scm.com/downloads
+
 http://git-scm.com/book/en/Getting-Started-Installing-Git
 
+
 03. Ambil Source Code di Github
+
 Ada 2 cara yaitu :
-a.
-Buat account di https://github.com
+
+a. Buat account di https://github.com
+
 http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup
+
 [Command] 
+
 $ git clone git://github.com:bayusetyatmoko/cio2013-frs.git
 
-b.
-Langsung download di : 
+b. Langsung download di : 
+
 https://github.com/bayusetyatmoko/cio2013-frs/archive/master.zip
+
 (tanpa harus buat account di github.com)
+
 
 04. Install Nodejs
 http://nodejs.org/download/
