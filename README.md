@@ -30,6 +30,7 @@ http://www.apachefriends.org/en/xampp-windows.html
 http://www.howtoforge.com/installing-apache2-with-php5-and-mysql-support-on-debian-wheezy
 
 
+
 ii. Install Git Client
 
 http://git-scm.com/downloads
@@ -37,7 +38,8 @@ http://git-scm.com/downloads
 http://git-scm.com/book/en/Getting-Started-Installing-Git
 
 
-ii. Ambil Source Code di Github
+
+iii. Ambil Source Code di Github
 
 Ada 2 cara yaitu :
 
@@ -54,6 +56,7 @@ b. Langsung download di :
 https://github.com/bayusetyatmoko/cio2013-frs/archive/master.zip
 
 (tanpa harus buat account di github.com)
+
 
 
 iv. Install Nodejs
@@ -73,52 +76,79 @@ v0.10.13
 (check after install)
 
 
-05. Install NPM
+
+v. Install NPM
+
 https://gist.github.com/isaacs/579814
+
 [Command]
+
 $ curl https://npmjs.org/install.sh | sh
+
 $ npm -v
+
 1.3.11
+
 (check after install)
+
 Pada O/S Windows Saat Install Nodejs maka Otomatis Install NPM.
 
-06. Install Sailsjs
+
+
+vi. Install Sailsjs
+
 http://sailsjs.org/#!getStarted
+
 [Command]
+
 $ sudo npm -g install sails
+
 $ sails -v
+
 info: v0.9.7
+
 (check after install)
 
+
+
 07. Running Program
+
 $ unzip cio2013-frs-master.zip
+
 $ ls -lh
+
 total 256K
+
 drwxr-xr-x 7 bayu bayu 4.0K Nov 19 19:46 cio2013-frs-master
+
 -rw-r--r-- 1 bayu bayu 246K Nov 19 21:25 cio2013-frs-master.zip
+
 $ mv cio2013-frs-master cio2013-frs
+
 $ cd cio2013-frs
 
 ~/cio2013-frs$ npm install
 
 ~/cio2013-frs$ cd config/
+
 ~/cio2013-frs/config$ vi local.js
+
 module.exports = {
+
   port: process.env.PORT || 1337,
+
   environment: process.env.NODE_ENV || 'development',
+
 	adapters: {
-		// If you leave the adapter config unspecified 
-		// in a model definition, 'default' will be used.
+
 		'default': 'mysql',
 
-		// Persistent adapter for DEVELOPMENT ONLY
-		// (data is preserved when the server shuts down)
 		'disk': {
+
 			module: 'sails-disk'
+
 		},
-		
-		// MySQL is the world's most popular relational database.
-		// Learn more: http://en.wikipedia.org/wiki/MySQL
+
 		'mysql': {
 			module   : 'sails-mysql',
 			host     : 'localhost',
