@@ -20,10 +20,14 @@ Kebutuhan Teknologi :
 
 Langkah-langkah Instalasi Program :
 ===================================
-01. Install MySQL 
+01. Install MySQL
+
 http://www.mysql.com/why-mysql/windows/
+
 http://www.apachefriends.org/en/xampp-windows.html
+
 http://www.howtoforge.com/installing-apache2-with-php5-and-mysql-support-on-debian-wheezy
+
 
 02. Install Git Client
 http://git-scm.com/downloads
