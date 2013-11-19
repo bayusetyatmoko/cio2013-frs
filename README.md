@@ -29,6 +29,8 @@ http://www.apachefriends.org/en/xampp-windows.html
 
 http://www.howtoforge.com/installing-apache2-with-php5-and-mysql-support-on-debian-wheezy
 
+(Buat Database baru dg nama : cio2013frs tanpa tabel, tabel akan otomatis dibuat aplikasi) 
+
 
 
 ii. Install Git Client
@@ -111,7 +113,7 @@ info: v0.9.7
 
 
 
-07. Running Program
+vii. Running Program
 
 $ unzip cio2013-frs-master.zip
 
@@ -140,15 +142,10 @@ module.exports = {
   environment: process.env.NODE_ENV || 'development',
 
 	adapters: {
-
 		'default': 'mysql',
-
 		'disk': {
-
 			module: 'sails-disk'
-
 		},
-
 		'mysql': {
 			module   : 'sails-mysql',
 			host     : 'localhost',
