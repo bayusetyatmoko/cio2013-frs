@@ -21,7 +21,7 @@ Kebutuhan Teknologi :
 
 Langkah-langkah Instalasi Program :
 ===================================
-1. Install MySQL
+i. Install MySQL
 
 http://www.mysql.com/why-mysql/windows/
 
@@ -30,14 +30,14 @@ http://www.apachefriends.org/en/xampp-windows.html
 http://www.howtoforge.com/installing-apache2-with-php5-and-mysql-support-on-debian-wheezy
 
 
-2. Install Git Client
+ii. Install Git Client
 
 http://git-scm.com/downloads
 
 http://git-scm.com/book/en/Getting-Started-Installing-Git
 
 
-3. Ambil Source Code di Github
+ii. Ambil Source Code di Github
 
 Ada 2 cara yaitu :
 
@@ -56,14 +56,22 @@ https://github.com/bayusetyatmoko/cio2013-frs/archive/master.zip
 (tanpa harus buat account di github.com)
 
 
-04. Install Nodejs
+iv. Install Nodejs
+
 http://nodejs.org/download/
+
 https://github.com/joyent/node
+
 http://www.joyent.com/blog/installing-node-and-npm/
+
 [Command]
+
 $ node -v
+
 v0.10.13
+
 (check after install)
+
 
 05. Install NPM
 https://gist.github.com/isaacs/579814
